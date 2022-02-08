@@ -1,212 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Newsletter SignUp</title>
-    <style>
-        body{
-            position: relative;
-            background: #505050;
-        }
-        .container{
-            display: grid;
-            grid-template-rows: 500px;
-            grid-template-columns: 250px 400px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            margin: 50px 0px;
-        }
-        .hide{
-            display: none;
-        }
-        .success-popup, .exists-popup, .fail-popup{
-            margin-top: 50px;
-            text-align: center;
-        }
-        .success-popup i, .exists-popup i, .fail-popup i{
-            font-size: 50px;
-        }
-        .left-container{
-            background: #2cace4 url('newsletter.jpg');
-            background-size: cover;
-            background-position: -250px;
-            border-radius: 10px 0px 0px 10px;
-        }
-        .right-container{
-            background: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px;
-            border-radius: 0px 10px 10px 0px;
-        }
-        .right-container h1{
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .subscription-form{
-            width: 100%;
-        }
-        .subscription-form input{
-            height: 30px;
-            outline: none;
-            border: 1px solid #a0a0a0a0;
-            padding: 2px 10px;
-            width: 90%;
-        }
-        .right-container button{
-            background: #2cace4;
-            color: white;
-            border: none;
-            height: 40px;
-            padding: 0px 30px;
-            cursor: pointer;
-        }
-        .right-container button:hover{
-            background: #046D8A;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Newsletter SignUp</title>
+  <style>
+      body{
+          position: relative;
+          background: #505050;
+      }
+      .container{
+          display: grid;
+          grid-template-rows: 500px;
+          grid-template-columns: 250px 400px;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          margin: 50px 0px;
+      }
+      .hide{
+          display: none;
+      }
+      .success-popup, .exists-popup, .fail-popup{
+          margin-top: 50px;
+          text-align: center;
+      }
+      .success-popup i, .exists-popup i, .fail-popup i{
+          font-size: 50px;
+      }
+      .left-container{
+          background: #2cace4 url('newsletter.jpg');
+          background-size: cover;
+          background-position: -250px;
+          border-radius: 10px 0px 0px 10px;
+      }
+      .right-container{
+          background: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 30px;
+          border-radius: 0px 10px 10px 0px;
+      }
+      .right-container h1{
+          margin-bottom: 30px;
+          text-align: center;
+      }
+      .subscription-form{
+          width: 100%;
+      }
+      .subscription-form input{
+          height: 30px;
+          outline: none;
+          border: 1px solid #a0a0a0a0;
+          padding: 2px 10px;
+          width: 90%;
+      }
+      .right-container button{
+          background: #2cace4;
+          color: white;
+          border: none;
+          height: 40px;
+          padding: 0px 30px;
+          cursor: pointer;
+      }
+      .right-container button:hover{
+          background: #046D8A;
+      }
 
-        @media (max-width: 42rem){
-            .container{
-                grid-template-columns: 300px;
-                grid-template-rows: 150px 450px;
-            }
-            
-            .left-container{
-                background-position: 0px -40px;
-                border-radius: 10px 10px 0px 0px;
-            }
-            .right-container{
-                padding: 10px 20px;
-                border-radius: 0px 0px 10px 10px;
-            }
-            .right-container h1{
-                text-align: center;
-                font-size: 30px;
-            }
-        }
-    </style>
-    <script src="https://use.fontawesome.com/28d360b431.js"></script>
+      @media (max-width: 42rem){
+          .container{
+              grid-template-columns: 300px;
+              grid-template-rows: 150px 450px;
+          }
+          
+          .left-container{
+              background-position: 0px -40px;
+              border-radius: 10px 10px 0px 0px;
+          }
+          .right-container{
+              padding: 10px 20px;
+              border-radius: 0px 0px 10px 10px;
+          }
+          .right-container h1{
+              text-align: center;
+              font-size: 30px;
+          }
+      }
+  </style>
+  <script src="https://use.fontawesome.com/28d360b431.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="left-container"></div>
-        <div class="right-container">
-            <div class="success-popup hide">
-                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                <h1>Thanks for subscribing to our Newsletter.
-                </h1>
-                <button id="success-btn" type="submit">Subscribe another mail</button>
-            </div>
-            <div class="exists-popup hide">
-                <i class="fa fa-bookmark-o" aria-hidden="true"></i>
-                <h1>Your email is already subscribed to our newsletter
-                </h1>
-                <button id="exists-btn" type="submit">Subscribe another mail</button>
-            </div>
-            <div class="fail-popup hide">
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                <h3>
-                    An error occured while trying subscribe your mail to our newsletter.
-                    Please Try Again
-                </h3>
-                <button id="fail-btn" type="submit">Try again</button>
-            </div>
-            <form class="subscription-form" id="subscription-form" method="POST">
-                <h1>Subscribe to our Newsletter</h1>
-                <label for="firstname">First Name*</label><br>
-                <input
-                    id="firstname"
-                    type="text"
-                    name="firstname"
-                    required
-                ><br><br>
-                <label for="lastname">Last Name*</label><br>
-                <input
-                    id="lastname"
-                    type="text"
-                    name="lastname"
-                    required
-                ><br><br>
-                <label for="email">Email*</label><br>
-                <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    required
-                ><br><br>
-                <button id="subscribe-btn" type="submit"> Subscribe</button>
-            </form>
-        </div>
+  <div class="container">
+    <div class="left-container"></div>
+    <div class="right-container">
+      <div class="success-popup hide">
+        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+        <h1>Thanks for subscribing to our Newsletter.
+        </h1>
+        <button id="success-btn" type="submit">Subscribe another mail</button>
+      </div>
+      <div class="exists-popup hide">
+        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+        <h1>Your email is already subscribed to our newsletter
+        </h1>
+        <button id="exists-btn" type="submit">Subscribe another mail</button>
+      </div>
+      <div class="fail-popup hide">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        <h3>
+            An error occured while trying subscribe your mail to our newsletter.
+            Please Try Again
+        </h3>
+        <button id="fail-btn" type="submit">Try again</button>
+      </div>
+      <form class="subscription-form" id="subscription-form" method="POST">
+        <h1>Subscribe to our Newsletter</h1>
+        <label for="firstname">First Name*</label><br>
+        <input
+          id="firstname"
+          type="text"
+          name="firstname"
+          required
+        ><br><br>
+        <label for="lastname">Last Name*</label><br>
+        <input
+          id="lastname"
+          type="text"
+          name="lastname"
+          required
+        ><br><br>
+        <label for="email">Email*</label><br>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          required
+        ><br><br>
+        <button id="subscribe-btn" type="submit"> Subscribe</button>
+      </form>
     </div>
-    <script>
-        const subscriptionForm = document.getElementById("subscription-form")
-        const firstname = document.getElementById("firstname")
-        const lastname = document.getElementById("lastname")
-        const email = document.getElementById("email")
-        const successPopup = document.querySelector(".success-popup")
-        const successBtn = document.getElementById("success-btn")
-        const existsPopup = document.querySelector(".exists-popup")
-        const existsBtn = document.getElementById("exists-btn")
-        const failPopup = document.querySelector(".fail-popup")
-        const failBtn = document.getElementById("fail-btn")
+  </div>
+  <script>
+    const subscriptionForm = document.getElementById("subscription-form")
+    const firstname = document.getElementById("firstname")
+    const lastname = document.getElementById("lastname")
+    const email = document.getElementById("email")
+    const successPopup = document.querySelector(".success-popup")
+    const successBtn = document.getElementById("success-btn")
+    const existsPopup = document.querySelector(".exists-popup")
+    const existsBtn = document.getElementById("exists-btn")
+    const failPopup = document.querySelector(".fail-popup")
+    const failBtn = document.getElementById("fail-btn")
 
-        const onSubmit = (e)=>{
-            e.preventDefault()
+    const onSubmit = (e)=>{
+      e.preventDefault()
 
-            fetch('/addMember', {
-                method: 'post',
-                headers: { "content-Type": "application/json" },
-                body: JSON.stringify({
-                    firstname: firstname.value,
-                    lastname: lastname.value,
-                    email: email.value
-                })
-            })
-            .then(res=> res.json())
-            .then(data=>{
-                if(data === "success"){
-                    subscriptionForm.classList.toggle("hide")
-                    successPopup.classList.toggle("hide")
-                }else if(data === "exists"){
-                    subscriptionForm.classList.toggle("hide")
-                    existsPopup.classList.toggle("hide")
-                }else{
-                    subscriptionForm.classList.toggle("hide")
-                    failPopup.classList.toggle("hide")
-                }
-            })
-            .catch(err=>{
-                console.log(err)
-                subscriptionForm.classList.toggle("hide")
-                failPopup.classList.toggle("hide")
-            })
+      fetch('/addMember', {
+        method: 'post',
+        headers: { "content-Type": "application/json" },
+        body: JSON.stringify({
+          firstname: firstname.value,
+          lastname: lastname.value,
+          email: email.value
+        })
+      })
+      .then(res=> res.json())
+      .then(data=>{
+        if(data === "success"){
+          subscriptionForm.classList.toggle("hide")
+          successPopup.classList.toggle("hide")
+        }else if(data === "exists"){
+          subscriptionForm.classList.toggle("hide")
+          existsPopup.classList.toggle("hide")
+        }else{
+          subscriptionForm.classList.toggle("hide")
+          failPopup.classList.toggle("hide")
         }
+      })
+      .catch(err=>{
+        console.log(err)
+        subscriptionForm.classList.toggle("hide")
+        failPopup.classList.toggle("hide")
+      })
+    }
 
-        const subscribeAnother = (type)=>{
-            subscriptionForm.classList.toggle("hide")
-            type === "exists"? 
-            existsPopup.classList.toggle("hide"): 
-            successPopup.classList.toggle("hide")
-            
-        }
+    const subscribeAnother = (type)=>{
+      subscriptionForm.classList.toggle("hide")
+      type === "exists"? 
+      existsPopup.classList.toggle("hide"): 
+      successPopup.classList.toggle("hide")
+        
+    }
 
-        const tryAgain = ()=>{
-            subscriptionForm.classList.toggle("hide")
-            failPopup.classList.toggle("hide")
-        }
+    const tryAgain = ()=>{
+      subscriptionForm.classList.toggle("hide")
+      failPopup.classList.toggle("hide")
+    }
 
-        subscriptionForm.addEventListener('submit', onSubmit)
+    subscriptionForm.addEventListener('submit', onSubmit)
 
-        successBtn.addEventListener('click', ()=>{subscribeAnother("success")})
+    successBtn.addEventListener('click', ()=>{subscribeAnother("success")})
 
-        existsBtn.addEventListener('click', ()=>{subscribeAnother("exists")})
+    existsBtn.addEventListener('click', ()=>{subscribeAnother("exists")})
 
-        failBtn.addEventListener('click', tryAgain)
+    failBtn.addEventListener('click', tryAgain)
 
-    </script>
+  </script>
 </body>
 </html>
