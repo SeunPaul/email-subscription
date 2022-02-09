@@ -5,6 +5,10 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
+// config dotenv
+require('dotenv').config({
+  path: './config/.env'
+});
 
 // parser
 app.use(express.urlencoded({extended: true}))
