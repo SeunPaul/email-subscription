@@ -8,7 +8,7 @@
   <style>
       body{
           position: relative;
-          background: #505050;
+          background: #233F4D;
       }
       .container{
           display: grid;
@@ -67,6 +67,9 @@
       }
       .right-container button:hover{
           background: #046D8A;
+      }
+      .right-container button i{
+        font-size: 25px;
       }
 
       @media (max-width: 42rem){
@@ -138,7 +141,7 @@
           name="email"
           required
         ><br><br>
-        <button id="subscribe-btn" type="submit"> Subscribe</button>
+        <button id="subscribe-btn" type="submit">Subscribe</button>
       </form>
     </div>
   </div>
@@ -147,6 +150,7 @@
     const firstname = document.getElementById("firstname")
     const lastname = document.getElementById("lastname")
     const email = document.getElementById("email")
+    const subscribeBtn = document.getElementById("subscribe-btn")
     const successPopup = document.querySelector(".success-popup")
     const successBtn = document.getElementById("success-btn")
     const existsPopup = document.querySelector(".exists-popup")
@@ -156,6 +160,8 @@
 
     const onSubmit = (e)=>{
       e.preventDefault()
+
+      subscribeBtn.innerHTML = '<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>'
 
       fetch('/addMember', {
         method: 'post',
@@ -168,6 +174,7 @@
       })
       .then(res=> res.json())
       .then(data=>{
+        subscribeBtn.innerHTML = 'Subscribe'
         if(data === "success"){
           subscriptionForm.classList.toggle("hide")
           successPopup.classList.toggle("hide")
@@ -180,6 +187,7 @@
         }
       })
       .catch(err=>{
+        subscribeBtn.innerHTML = 'Subscribe'
         subscriptionForm.classList.toggle("hide")
         failPopup.classList.toggle("hide")
       })
